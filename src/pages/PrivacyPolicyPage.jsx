@@ -84,7 +84,7 @@ const PrivacyPolicyPage = () => {
                             If you have any questions or concerns about this Privacy Policy, please contact us at:
                         </p>
                         <p className="font-semibold text-[var(--color-text-dark)]">
-                            Email: <a href="mailto:support@learnafanoromo.com" className="text-[var(--color-primary)] hover:underline">support@learnafanoromo.com</a>
+                            Email: <a href="mailto:afaanoromolearn@gmail.com" className="text-[var(--color-primary)] hover:underline">afaanoromolearn@gmail.com</a>
                         </p>
                     </div>
                 </div>

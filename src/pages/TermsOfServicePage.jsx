@@ -64,7 +64,7 @@ const TermsOfServicePage = () => {
 
                         <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">10. Contact Us</h2>
                         <p className="mb-4">
-                            If you have any questions about these Terms, please contact us at <a href="mailto:support@learnafanoromo.com" className="text-[var(--color-primary)] hover:underline">support@learnafanoromo.com</a>.
+                            If you have any questions about these Terms, please contact us at <a href="mailto:afaanoromolearn@gmail.com" className="text-[var(--color-primary)] hover:underline">afaanoromolearn@gmail.com</a>.
                         </p>
                     </div>
                 </div>
