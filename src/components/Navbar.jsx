@@ -46,7 +46,7 @@ const Navbar = () => {
                     ))}
                     <a
                         href="#" // Placeholder for download link
-                        className="px-5 py-2.5 rounded-full bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-orange)] transition-all duration-300 shadow-lg shadow-green-100 hover:shadow-orange-100 transform hover:-translate-y-0.5"
+                        className="px-5 py-2.5 rounded-full bg-[var(--color-orange)] text-white font-semibold hover:bg-[var(--color-orange-dark)] transition-all duration-300 shadow-lg shadow-orange-100 hover:shadow-orange-200 transform hover:-translate-y-0.5"
                     >
                         Download App
                     </a>
@@ -83,7 +83,7 @@ const Navbar = () => {
                             ))}
                             <a
                                 href="#"
-                                className="w-full text-center py-3 rounded-xl bg-[var(--color-primary)] text-white font-bold shadow-md"
+                                className="w-full text-center py-3 rounded-xl bg-[var(--color-orange)] text-white font-bold shadow-md hover:bg-[var(--color-orange-dark)] transition-colors"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Download App

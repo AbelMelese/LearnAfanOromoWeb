@@ -42,7 +42,7 @@ const Hero = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-12">
-                            <button className="w-full sm:w-auto px-8 py-4 bg-[var(--color-primary)] hover:bg-[var(--color-orange)] text-white text-lg font-bold rounded-2xl shadow-lg shadow-green-200 hover:shadow-orange-200 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                            <button className="w-full sm:w-auto px-8 py-4 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white text-lg font-bold rounded-2xl shadow-lg shadow-orange-200 hover:shadow-orange-300 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
                                 Download App <Play size={20} fill="currentColor" />
                             </button>
                         </div>
