@@ -1,69 +1,95 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Trophy, Headphones, Clock, BarChart } from 'lucide-react';
-
-const features = [
-    {
-        icon: <Trophy className="w-8 h-8 text-[var(--color-primary)]" />,
-        title: 'Gamified Learning',
-        description: 'Earn points, unlock badges, and maintain your streak. Learning feels like a game!',
-        gradient: 'from-green-50 to-emerald-100',
-    },
-    {
-        icon: <Headphones className="w-8 h-8 text-[var(--color-orange)]" />,
-        title: 'Interactive Audio',
-        description: 'Listen to native speakers and perfect your pronunciation with our voice recognition exercises.',
-        gradient: 'from-orange-50 to-amber-100',
-    },
-    {
-        icon: <Clock className="w-8 h-8 text-[var(--color-primary)]" />,
-        title: 'Micro-Lessons',
-        description: 'Busy schedule? No problem. Our lessons take just 5 minutes to complete.',
-        gradient: 'from-blue-50 to-cyan-100', // Just for variety, though primary/orange are main
-    },
-    {
-        icon: <BarChart className="w-8 h-8 text-[var(--color-orange)]" />,
-        title: 'Track Progress',
-        description: 'Visual dashboards show exactly how much you\'ve learned and where you need practice.',
-        gradient: 'from-purple-50 to-fuchsia-100',
-    },
-];
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Features = () => {
     return (
-        <section id="features" className="py-24 bg-[var(--color-background)] relative overflow-hidden">
-            <div className="container mx-auto px-4">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-4xl font-extrabold text-[var(--color-text-dark)] mb-6">
-                        Why Learn with Us?
-                    </h2>
-                    <p className="text-lg text-[var(--color-text-gray)]">
-                        We've combined the science of learning with the fun of gaming to help you master Afan Oromo faster than ever.
-                    </p>
-                </div>
+        <section id="contact" className="py-24 bg-[var(--color-background)] relative overflow-hidden">
+            <div className="pt-32 pb-20 bg-[var(--color-background)]">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-4xl mx-auto">
+                        <h1 className="text-4xl font-bold text-[var(--color-text-dark)] mb-8 text-center">Get in Touch</h1>
+                        <p className="text-[var(--color-text-gray)] text-center mb-12 max-w-2xl mx-auto">
+                            Have questions about the app? Need help with your account? Or just want to say hi? We'd love to hear from you.
+                        </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {features.map((feature, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            whileHover={{ y: -10 }}
-                            className={`p-8 rounded-3xl border border-gray-100 bg-gradient-to-br ${feature.gradient} hover:shadow-xl transition-all duration-300 relative group`}
-                        >
-                            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
-                                {feature.icon}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            {/* Contact Info */}
+                            <div className="space-y-8">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0">
+                                        <Mail size={24} />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-lg text-[var(--color-text-dark)] mb-1">Email Us</h3>
+                                        <p className="text-[var(--color-text-gray)] mb-2">For general inquiries and support.</p>
+                                        <a href="mailto:support@learnafanoromo.com" className="text-[var(--color-primary)] font-semibold hover:underline">
+                                            support@learnafanoromo.com
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-[var(--color-orange)] shrink-0">
+                                        <Phone size={24} />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-lg text-[var(--color-text-dark)] mb-1">Call Us</h3>
+                                        <p className="text-[var(--color-text-gray)] mb-2">Available Mon-Fri, 9am - 5pm.</p>
+                                        <a href="tel:+251911000000" className="text-[var(--color-primary)] font-semibold hover:underline">
+                                            +251 911 000 000
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+                                        <MapPin size={24} />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-lg text-[var(--color-text-dark)] mb-1">Visit Us</h3>
+                                        <p className="text-[var(--color-text-gray)]">
+                                            Addis Ababa, Ethiopia<br />
+                                            Bole Medhanialem
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-bold text-[var(--color-text-dark)] mb-3">
-                                {feature.title}
-                            </h3>
-                            <p className="text-[var(--color-text-gray)] leading-relaxed">
-                                {feature.description}
-                            </p>
-                        </motion.div>
-                    ))}
+
+                            {/* Contact Form */}
+                            <form className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                                <div className="mb-6">
+                                    <label htmlFor="name" className="block text-sm font-semibold text-[var(--color-text-dark)] mb-2">Name</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all"
+                                        placeholder="Your name"
+                                    />
+                                </div>
+                                <div className="mb-6">
+                                    <label htmlFor="email" className="block text-sm font-semibold text-[var(--color-text-dark)] mb-2">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all"
+                                        placeholder="you@example.com"
+                                    />
+                                </div>
+                                <div className="mb-6">
+                                    <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-text-dark)] mb-2">Message</label>
+                                    <textarea
+                                        id="message"
+                                        rows="4"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all"
+                                        placeholder="How can we help?"
+                                    ></textarea>
+                                </div>
+                                <button type="button" className="w-full py-4 bg-[var(--color-primary)] text-white font-bold rounded-xl hover:bg-[var(--color-orange)] transition-colors shadow-lg shadow-green-100 flex items-center justify-center gap-2">
+                                    Send Message <Send size={18} />
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
