@@ -16,8 +16,7 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Features', href: '/#features' },
-        { name: 'Contact', href: '/contact' },
+        { name: 'Contact', href: '/#contact' },
     ];
 
     return (
