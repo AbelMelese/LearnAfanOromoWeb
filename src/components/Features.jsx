@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
-import { supabase } from '../supabaseClient';
+
 
 const Features = () => {
     const [name, setName] = React.useState('');
@@ -49,23 +49,36 @@ const Features = () => {
             setStatus('idle');
 
             const payload = {
-                user_id: null,
                 name: name.trim() || null,
                 email: email.trim() || null,
                 message: message.trim(),
-                platform: 'web',
             };
 
-            const { error } = await supabase.from('bug_reports').insert([payload]);
-            if (error) throw error;
+            const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+            const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-            showFeedback('success', 'Message sent successfully! We will get back to you soon.');
+            const res = await fetch(`${supabaseUrl}/functions/v1/submit-contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${supabaseAnonKey}`,
+                },
+                body: JSON.stringify(payload),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || 'Failed to send message.');
+            }
+
+            showFeedback('success', data.message || 'Message sent successfully! We will get back to you soon.');
             setName('');
             setEmail('');
             setMessage('');
         } catch (error) {
             console.error('Error submitting form:', error);
-            showFeedback('error', 'Failed to send message. Please try again.');
+            showFeedback('error', error.message || 'Failed to send message. Please try again.');
         } finally {
             setSubmitting(false);
         }
