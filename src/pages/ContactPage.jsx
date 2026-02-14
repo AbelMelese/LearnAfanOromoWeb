@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 import { supabase } from '../supabaseClient';
 
@@ -10,18 +10,31 @@ const ContactPage = () => {
     const [email, setEmail] = React.useState('');
     const [message, setMessage] = React.useState('');
     const [submitting, setSubmitting] = React.useState(false);
+    const [status, setStatus] = React.useState('idle'); // idle, success, error
+    const [feedbackMsg, setFeedbackMsg] = React.useState('');
+
+    const showFeedback = (type, msg) => {
+        setStatus(type);
+        setFeedbackMsg(msg);
+        if (type === 'success') {
+            setTimeout(() => {
+                setStatus('idle');
+                setFeedbackMsg('');
+            }, 5000);
+        }
+    };
 
     const validateForm = () => {
         if (!message.trim()) {
-            alert('Message is required.');
+            showFeedback('error', 'Message is required.');
             return false;
         }
         if (message.length < 10) {
-            alert('Message is too short (min 10 characters).');
+            showFeedback('error', 'Message is too short (min 10 characters).');
             return false;
         }
         if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            alert('Please enter a valid email address.');
+            showFeedback('error', 'Please enter a valid email address.');
             return false;
         }
         return true;
@@ -35,6 +48,7 @@ const ContactPage = () => {
 
         try {
             setSubmitting(true);
+            setStatus('idle');
 
             const payload = {
                 user_id: null,
@@ -47,13 +61,13 @@ const ContactPage = () => {
             const { error } = await supabase.from('bug_reports').insert([payload]);
             if (error) throw error;
 
-            alert('Message sent successfully!');
+            showFeedback('success', 'Message sent successfully! We will get back to you soon.');
             setName('');
             setEmail('');
             setMessage('');
         } catch (error) {
             console.error('Error submitting form:', error);
-            alert('Failed to send message. Please try again.');
+            showFeedback('error', 'Failed to send message. Please try again.');
         } finally {
             setSubmitting(false);
         }
@@ -116,6 +130,12 @@ const ContactPage = () => {
 
                             {/* Contact Form */}
                             <form className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100" onSubmit={handleSend}>
+                                {status !== 'idle' && (
+                                    <div className={`mb-6 p-4 rounded-xl flex items-start gap-3 ${status === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                                        {status === 'success' ? <CheckCircle size={20} className="shrink-0 mt-0.5" /> : <AlertCircle size={20} className="shrink-0 mt-0.5" />}
+                                        <p className="text-sm font-medium">{feedbackMsg}</p>
+                                    </div>
+                                )}
                                 <div className="mb-6">
                                     <label htmlFor="name" className="block text-sm font-semibold text-[var(--color-text-dark)] mb-2">Name</label>
                                     <input
