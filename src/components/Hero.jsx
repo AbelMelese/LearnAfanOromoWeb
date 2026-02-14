@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Star, Users, CheckCircle } from 'lucide-react';
 
+const TAB_KEYS = ['home', 'lessons', 'profile', 'settings'];
+const AUTO_CYCLE_INTERVAL = 4000; // 4 seconds per tab
+
 const Hero = () => {
     const [activeTab, setActiveTab] = useState('home');
+    const intervalRef = useRef(null);
 
     // 4 tabs matching the real app bottom nav: Home | Lessons | Profile | Settings
     const tabs = {
@@ -12,6 +16,29 @@ const Hero = () => {
         profile: '/ProfileTab.png',
         settings: '/SettingsTab.png',
     };
+
+    // Start or restart the auto-cycle timer
+    const startAutoCycle = useCallback(() => {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        intervalRef.current = setInterval(() => {
+            setActiveTab((prev) => {
+                const currentIndex = TAB_KEYS.indexOf(prev);
+                return TAB_KEYS[(currentIndex + 1) % TAB_KEYS.length];
+            });
+        }, AUTO_CYCLE_INTERVAL);
+    }, []);
+
+    // Auto-cycle on mount, cleanup on unmount
+    useEffect(() => {
+        startAutoCycle();
+        return () => clearInterval(intervalRef.current);
+    }, [startAutoCycle]);
+
+    // Manual tab click: switch tab and reset the timer
+    const handleTabClick = useCallback((tab) => {
+        setActiveTab(tab);
+        startAutoCycle(); // restart timer so user gets full 4s on their selection
+    }, [startAutoCycle]);
 
     return (
         <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-b from-white to-[var(--color-blob-light)] pt-32 pb-20">
@@ -106,25 +133,25 @@ const Hero = () => {
                                     style={{ bottom: '1%', height: '6.5%' }}
                                 >
                                     <button
-                                        onClick={() => setActiveTab('home')}
+                                        onClick={() => handleTabClick('home')}
                                         className="cursor-pointer bg-transparent border-none outline-none"
                                         style={{ width: '25%', height: '100%' }}
                                         title="Home"
                                     />
                                     <button
-                                        onClick={() => setActiveTab('lessons')}
+                                        onClick={() => handleTabClick('lessons')}
                                         className="cursor-pointer bg-transparent border-none outline-none"
                                         style={{ width: '25%', height: '100%' }}
                                         title="Lessons"
                                     />
                                     <button
-                                        onClick={() => setActiveTab('profile')}
+                                        onClick={() => handleTabClick('profile')}
                                         className="cursor-pointer bg-transparent border-none outline-none"
                                         style={{ width: '25%', height: '100%' }}
                                         title="Profile"
                                     />
                                     <button
-                                        onClick={() => setActiveTab('settings')}
+                                        onClick={() => handleTabClick('settings')}
                                         className="cursor-pointer bg-transparent border-none outline-none"
                                         style={{ width: '25%', height: '100%' }}
                                         title="Settings"
