@@ -42,27 +42,22 @@ const TermsOfServicePage = () => {
                             <li>Transmit any viruses, malware, or other malicious code.</li>
                         </ul>
 
-                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">6. AI-Generated Content</h2>
-                        <p className="mb-4">
-                            Some features of the App are powered by artificial intelligence (AI). While we strive for accuracy, AI-generated content may occasionally be incorrect or inappropriate. You access and use such content at your own risk.
-                        </p>
-
-                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">7. Disclaimer of Warranties</h2>
+                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">6. Disclaimer of Warranties</h2>
                         <p className="mb-4">
                             The App is provided on an "AS IS" and "AS AVAILABLE" basis. We make no warranties, expressed or implied, regarding the accuracy, reliability, or availability of the App or its content.
                         </p>
 
-                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">8. Limitation of Liability</h2>
+                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">7. Limitation of Liability</h2>
                         <p className="mb-4">
                             To the fullest extent permitted by law, Learn Afan Oromo nor its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of the App.
                         </p>
 
-                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">9. Changes to Terms</h2>
+                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">8. Changes to Terms</h2>
                         <p className="mb-4">
                             We reserve the right to modify these Terms at any time. We will notify you of any material changes within the App or by updating the "Last Updated" date. Continued use of the App constitutes acceptance of the modified Terms.
                         </p>
 
-                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">10. Contact Us</h2>
+                        <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">9. Contact Us</h2>
                         <p className="mb-4">
                             If you have any questions about these Terms, please contact us at <a href="mailto:afaanoromolearn@gmail.com" className="text-[var(--color-primary)] hover:underline">afaanoromolearn@gmail.com</a>.
                         </p>

@@ -22,7 +22,7 @@ const PrivacyPolicyPage = () => {
                         <h3 className="text-xl font-bold text-[var(--color-text-dark)] mt-6 mb-2">a. Personal Information (Voluntarily Provided)</h3>
                         <ul className="list-disc pl-6 mb-4 space-y-2 text-[var(--color-text-gray)]">
                             <li><strong>Account Information:</strong> When you sign up using Google Sign-In or email, we collect your name, email address, and profile picture to create and manage your account.</li>
-                            <li><strong>User Content:</strong> We may collect images you upload (e.g., for your profile picture) if you grant us access to your device's photo gallery.</li>
+                            <li><strong>User Content:</strong> We may collect images that you explicitly choose to attach through your device's system photo picker (for example, when reporting a problem).</li>
                             <li><strong>Communication:</strong> If you contact us for support, we may collect your name, email address, and the content of your message.</li>
                         </ul>
 
@@ -30,7 +30,7 @@ const PrivacyPolicyPage = () => {
                         <ul className="list-disc pl-6 mb-4 space-y-2 text-[var(--color-text-gray)]">
                             <li><strong>Device Information:</strong> We collect information about the device you use to access the App, including the hardware model, operating system and version, unique device identifiers, and mobile network information.</li>
                             <li><strong>Usage Data:</strong> We collect information about your activity within the App, such as the lessons you complete, quizzes you take, your progress, and the time and duration of your sessions.</li>
-                            <li><strong>Advertising Data:</strong> We use Google AdMob to display advertisements. AdMob may collect and use your device's advertising ID (e.g., GAID) to show you personalized ads based on your interests.</li>
+                            <li><strong>Advertising Data:</strong> We use Google AdMob to display advertisements. AdMob may collect and use your device's advertising ID (e.g., GAID) to deliver and measure ads.</li>
                         </ul>
 
                         <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">2. How We Use Your Information</h2>
@@ -50,13 +50,12 @@ const PrivacyPolicyPage = () => {
                             <li><strong>Supabase:</strong> For backend services, database management, and user authentication.</li>
                             <li><strong>Google Sign-In:</strong> For secure user authentication.</li>
                             <li><strong>Google AdMob:</strong> For displaying advertisements. Learn more about how Google uses data here: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">Google Privacy & Terms</a>.</li>
-                            <li><strong>Google Gemini AI:</strong> We use Google's generative AI to power certain interactive features. Anonymized text inputs may be processed to generate responses.</li>
                         </ul>
 
                         <h2 className="text-2xl font-bold text-[var(--color-text-dark)] mt-8 mb-4">4. Permissions We Request</h2>
                         <p className="mb-4">To provide specific features, we may request access to:</p>
                         <ul className="list-disc pl-6 mb-4 space-y-2 text-[var(--color-text-gray)]">
-                            <li><strong>Storage (Read/Write):</strong> To upload profile pictures and save your learning progress locally.</li>
+                            <li><strong>Photos via your device's picker:</strong> To attach a screenshot when you choose to send one with a support message.</li>
                             <li><strong>Notifications:</strong> To send you study reminders and updates (you can disable this in your device settings).</li>
                             <li><strong>Internet:</strong> To sync data with our servers and load content.</li>
                         </ul>
